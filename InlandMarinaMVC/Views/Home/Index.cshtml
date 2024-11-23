@@ -1,8 +1,42 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container mt-5">
+    <!-- Logo Section -->
+    <div class="text-center mb-4">
+        <img src="~/images/inlandbanner_v3_800x100.jpg" alt="Inland Marina Limited" class="img-fluid rounded shadow-sm" />
+    </div>
+
+    <!-- Home Page Information Section -->
+    <div class="text-center">
+        <h2 class="mb-3 text-primary fw-bold">Website Content</h2>
+        <h4 class="mb-4">
+            <a href="#" class="text-decoration-none text-info fw-semibold">Home Page Information</a>
+        </h4>
+        <p class="lead text-secondary">
+            Welcome to Inland Marina located on the south shore Inland Lake, just a small commute
+            from major centers in the southwest.
+        </p>
+    </div>
+
+    <hr class="my-5 border-2 border-secondary" />
+
+    <!-- Additional Information Section -->
+    <div class="row align-items-center">
+        <div class="col-md-6 text-center">
+            <img src="~/images/inland-marina.jpg" alt="Inland Marina" class="img-fluid rounded shadow-lg mb-3" style="max-height: 400px;" />
+        </div>
+        <div class="col-md-6">
+            <p class="text-justify text-secondary fs-5">
+                Inland Marina was established in 1967 shortly after Inland Lake was created as a
+                result of the Southwest dam. From its humble beginnings, it has grown to be the
+                largest marina on Inland Lake. Due to the warm climate that extends year-round,
+                Inland Lake has become a popular tourist destination in the southwest. Boat owners
+                from California, Arizona, Nevada, and Utah are attracted to the area. Inland Marina
+                has 90 slips ranging in size from 16 to 32 feet in length. Dock services include
+                electrical and fresh water.
+            </p>
+        </div>
+    </div>
 </div>
