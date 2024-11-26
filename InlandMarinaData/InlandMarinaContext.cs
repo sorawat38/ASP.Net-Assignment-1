@@ -14,9 +14,13 @@ public class InlandMarinaContext : DbContext
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			//Change the connection string here for your home computer/lab computer
-			optionsBuilder.UseSqlServer(@"Server=localhost\sqlexpress;
-                                          Database=InlandMarina;
-                                          Trusted_Connection=True;");
+			optionsBuilder.UseSqlServer("""
+			                            Server=localhost,1433;
+			                            Database=InlandMarina;
+			                            User Id=sa;
+			                            Password=DB_Password;
+			                            TrustServerCertificate=True;
+			                            """);
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
