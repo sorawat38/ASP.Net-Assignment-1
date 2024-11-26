@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
 namespace InlandMarinaData;
@@ -24,6 +25,7 @@ public class SlipRepository
             )
             .Where(s => s.lease == null)
             .Select(s => s.slip)
+            .Include(s => s.Dock)
             .ToList();
 
         return unleasedSlips;
