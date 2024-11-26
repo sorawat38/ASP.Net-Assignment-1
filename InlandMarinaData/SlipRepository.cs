@@ -30,4 +30,14 @@ public class SlipRepository
 
         return unleasedSlips;
     }
+    
+    public static List<Slip> GetSlipsByDock(InlandMarinaContext dbContext, int dockId)
+    {
+        List<Slip> slips = dbContext.Slips
+            .Where(s => s.DockID == dockId)
+            .Include(s => s.Dock)
+            .ToList();
+
+        return slips;
+    }
 }

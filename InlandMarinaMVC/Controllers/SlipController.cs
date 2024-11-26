@@ -19,29 +19,50 @@ namespace InlandMarinaMVC.Controllers
         }
 
         // GET: Slip
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            List<Slip> unleasedSlips = SlipRepository.GetUnleasedSlips(_context);
-            return View(unleasedSlips);
+            GetDock();
+
+            // Create list of Slips based on selected Dock
+            List<Slip> slips = SlipRepository.GetUnleasedSlips(_context);
+            return View(slips);
         }
 
-        // GET: Slip/Details/5
-        public async Task<IActionResult> Details(int? id)
+        // POST: Slip
+        [HttpPost]
+        public ActionResult Index(string id = "O")
         {
-            if (id == null)
+            List<SelectListItem> list = GetDock();
+
+            foreach (var item in list)
             {
-                return NotFound();
+                if (item.Value == id)
+                {
+                    item.Selected = true;
+                    break;
+                }
             }
 
-            var slip = await _context.Slips
-                .Include(s => s.Dock)
-                .FirstOrDefaultAsync(m => m.ID == id);
-            if (slip == null)
-            {
-                return NotFound();
-            }
+            List<Slip> slips = id == "O"
+                ? SlipRepository.GetUnleasedSlips(_context)
+                : SlipRepository.GetSlipsByDock(_context, Convert.ToInt32(id));
+            
+            return View(slips);
+        }
 
-            return View(slip);
+        private List<SelectListItem> GetDock()
+        {
+            // Fetch the list of Docks
+            List<Dock> docks = DockRepository.GetDocks(_context);
+            // Create a select / dropdown list of Docks
+            var list = new SelectList(docks, "ID", "Name").ToList();
+            // Ensure that a Dock is not selected first
+            // to see all Slips
+            list.Insert(0, new SelectListItem("All Unleased Slips", "O"));
+            // //storing list of Dock into ViewBag
+            ViewBag.Dock = list;
+
+            return list;
         }
     }
 }

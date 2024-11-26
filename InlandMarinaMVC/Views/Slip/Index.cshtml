@@ -1,12 +1,18 @@
 @model IEnumerable<InlandMarinaData.Slip>
 
 @{
-    ViewBag.Title = "Slip";
+    ViewData["Title"] = "Filtered List";
 }
 
 <div class="container mt-5">
     <h1>Unleased Slips</h1>
     <hr/>
+
+    <form asp-action="Index" method="post">
+        <p>
+            <select class="form-select" aria-label="Default select dock" name="id" asp-items="@ViewBag.Dock" onchange="this.form.submit()"></select>
+        </p>
+    </form>
     <table class="table">
         <thead>
         <tr>
@@ -22,7 +28,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model)
+        @foreach(var item in Model)
         {
             <tr>
                 <td>
