@@ -9,18 +9,6 @@ public class InlandMarinaContext(DbContextOptions<InlandMarinaContext> options) 
     public DbSet<Slip> Slips { get; set; }
     public DbSet<Lease> Leases { get; set; }
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    // 	//Change the connection string here for your home computer/lab computer
-    // 	optionsBuilder.UseSqlServer("""
-    // 	                            Server=localhost,1433;
-    // 	                            Database=InlandMarina;
-    // 	                            User Id=sa;
-    // 	                            Password=DB_Password;
-    // 	                            TrustServerCertificate=True;
-    // 	                            """);
-    // }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
