@@ -8,7 +8,17 @@ using Microsoft.EntityFrameworkCore;
 using InlandMarinaData;
 
 namespace InlandMarinaMVC.Controllers
-{
+{ 
+    // *********************************************************************
+    // * SlipController.cs
+    // *
+    // * Project: Assignment 1                             
+    // * Description: ASP.NET MVC Web Application for Inland Marina      
+    // * Version: 1.0.0                                        
+    // * Date: 2024-11-26                                      
+    // * Author: Sorawat (James) Tanthikun                     
+    // * Purpose: Slip page controller for Inland Marina MVC web application
+    //*********************************************************************
     public class SlipController : Controller
     {
         private readonly InlandMarinaContext _context;
@@ -46,7 +56,7 @@ namespace InlandMarinaMVC.Controllers
             List<Slip> slips = id == "O"
                 ? SlipRepository.GetUnleasedSlips(_context)
                 : SlipRepository.GetSlipsByDock(_context, Convert.ToInt32(id));
-            
+
             return View(slips);
         }
 

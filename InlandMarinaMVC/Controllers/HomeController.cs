@@ -3,7 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 using InlandMarinaMVC.Models;
 
 namespace InlandMarinaMVC.Controllers;
-
+// *********************************************************************
+// * HomeController.cs
+// *
+// * Project: Assignment 1                             
+// * Description: ASP.NET MVC Web Application for Inland Marina      
+// * Version: 1.0.0                                        
+// * Date: 2024-11-26                                      
+// * Author: Sorawat (James) Tanthikun                     
+// * Purpose: Home page controller for Inland Marina MVC web application
+//*********************************************************************
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

@@ -1,7 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace InlandMarinaData;
-
+// *********************************************************************
+// * InlandMarinaContext.cs
+// *
+// * Project: Assignment 1                             
+// * Description: ASP.NET MVC Web Application for Inland Marina      
+// * Version: 1.0.0                                        
+// * Date: 2024-11-26                                      
+// * Author: Sorawat (James) Tanthikun                     
+// * Purpose: Represents the database context for the Inland Marina 
+// *          application, including DbSets and seeding logic.
+// *********************************************************************
 public class InlandMarinaContext(DbContextOptions<InlandMarinaContext> options) : DbContext(options)
 {
     public DbSet<Customer> Customers { get; set; }

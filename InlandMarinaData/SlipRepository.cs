@@ -2,7 +2,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
 namespace InlandMarinaData;
-
+// *********************************************************************
+// * SlipRepository.cs
+// *
+// * Project: Assignment 1                             
+// * Description: ASP.NET MVC Web Application for Inland Marina      
+// * Version: 1.0.0                                        
+// * Date: 2024-11-26                                      
+// * Author: Sorawat (James) Tanthikun                     
+// * Purpose: Slip repository for Inland Marina MVC web application
+//*********************************************************************
 public class SlipRepository
 {
     /// <summary>
@@ -31,6 +40,12 @@ public class SlipRepository
         return unleasedSlips;
     }
     
+    /// <summary>
+    /// Get slips by dock.
+    /// </summary>
+    /// <param name="dbContext">Database context</param>
+    /// <param name="dockId">Dock Id</param>
+    /// <returns>List of slips</returns>
     public static List<Slip> GetSlipsByDock(InlandMarinaContext dbContext, int dockId)
     {
         List<Slip> slips = dbContext.Slips
